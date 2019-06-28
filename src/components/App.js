@@ -4,7 +4,8 @@ import Nav from './nav'
 import Drop from './drop' 
 import Butt from './test'
 import Admin from './admin'
-import Conexion from './connexion'
+import SignUp from './signup'
+import SignIn from './signin' 
 // import withFirebaseAuth from 'react-with-firebase-auth'
 // import * as firebase from 'firebase/app';
 // import 'firebase/auth';
@@ -21,7 +22,8 @@ function App() {
      <Nav />
      <Drop />
      <Butt/>
-     <Conexion />
+     <SignUp />
+     <SignIn />
      <Admin/>
     </div>
   );
