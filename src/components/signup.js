@@ -23,50 +23,49 @@ class SignUp extends Component {
     return (
       <div className="container">
         <ol className="breadcrumb">
-          <li>
-            <a href="index.html">Home</a>
-          </li>
-          <li className="active">Registration</li>
+          <li className="active">S'inscrire</li>
         </ol>
         <article className="col-xs-12 maincontent">
           <header className="page-header">
-            <h1 className="page-title">Registration</h1>
+            <h1 className="page-title">S'inscrire</h1>
           </header>
           <div className="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
             <div className="panel panel-default">
               <div className="panel-body">
-                <h3 className="thin text-center">Register a new account</h3>
+                <h3 className="thin text-center">
+                  Inscrivez-vous sur San3a.tn
+                </h3>
                 <p className="text-center text-muted">
-                  Lorem ipsum dolor sit amet, <a href="signin.html">Login</a>{" "}
-                  adipisicing elit. Quo nulla quibusdam cum doloremque incidunt
-                  nemo sunt a tenetur omnis odio.{" "}
+                  Si vous etes deja membre, <a href="signin.html">connectez</a>{" "}
+                  vous et lancer votre recherche de bricoleur ou du travail sur
+                  notre platforme.{" "}
                 </p>
                 <hr />
                 <form>
                   <div className="top-margin">
-                    <label>First Name</label>
+                    <label>Prenom</label>
                     <input type="text" className="form-control" />
                   </div>
                   <div className="top-margin">
-                    <label>Last Name</label>
+                    <label>Nom</label>
                     <input type="text" className="form-control" />
                   </div>
                   <div className="top-margin">
                     <label>
-                      Email Address <span className="text-danger">*</span>
+                      Addresse mail <span className="text-danger">*</span>
                     </label>
                     <input type="text" className="form-control" />
                   </div>
                   <div className="row top-margin">
                     <div className="col-sm-6">
                       <label>
-                        Password <span className="text-danger">*</span>
+                        Mot de passe <span className="text-danger">*</span>
                       </label>
                       <input type="text" className="form-control" />
                     </div>
                     <div className="col-sm-6">
                       <label>
-                        Confirm Password <span className="text-danger">*</span>
+                        Confirmer Mot de passe <span className="text-danger">*</span>
                       </label>
                       <input type="text" className="form-control" />
                     </div>
@@ -76,13 +75,13 @@ class SignUp extends Component {
                     <div className="col-lg-8">
                       <label className="checkbox">
                         <input type="checkbox" />
-                        I've read the{" "}
-                        <a href="page_terms.html">Terms and Conditions</a>
+                        J'ai lus les{" "}
+                        <a href="page_terms.html">Termes et Conditions</a>
                       </label>
                     </div>
                     <div className="col-lg-4 text-right">
                       <button className="btn btn-action" type="submit">
-                        Register
+                        S'inscrire
                       </button>
                     </div>
                   </div>
