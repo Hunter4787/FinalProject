@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 import Nav from './nav' 
+import Drop from './drop' 
+import Butt from './test'
 import Admin from './admin'
 import Conexion from './connexion'
 import withFirebaseAuth from 'react-with-firebase-auth'
@@ -17,6 +19,8 @@ function App() {
   return (
     <div className="App">
      <Nav />
+     <Drop />
+     <Butt/>
      <Conexion />
      <Admin/>
     </div>
