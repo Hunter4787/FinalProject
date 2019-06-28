@@ -21,15 +21,17 @@ class Nav extends Component {
                         </div>
                         <div id="navbar" className="navbar-collapse collapse">
                             <ul className="nav navbar-nav navbar-right">
-                                <li className="active"><a data-scroll href="#home">Home</a></li>
+                                <li className="active"><a data-scroll href="#home">Acceuil</a></li>
                                 <li><a data-scroll href="#Se connecter">Se connecter</a></li>
                                 <li><a data-scroll href="#S'inscrire">S'inscrire</a></li>
-                                <li><a data-scroll href="#contact">Contact Us</a></li>
+                                <li><a data-scroll href="#contact">Contactez nous</a></li>
                             </ul>
                         </div>
                     </div>
                 </nav>
             </header>
+            <div id="home" className="parallax first-section" data-stellar-background-ratio="0.4" style={{ backgroundImage: 'url("uploads/building/slide-img1.png")' }}>
+            </div>
         </div>);
     }
 }

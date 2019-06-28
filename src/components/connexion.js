@@ -1,145 +1,206 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import {
-  MDBNavbar,
-  MDBNavbarBrand,
-  MDBNavbarNav,
-  MDBNavItem,
-  MDBNavLink,
-  MDBNavbarToggler,
-  MDBCollapse,
-  MDBMask,
-  MDBRow,
-  MDBCol,
-  MDBIcon,
-  MDBBtn,
-  MDBView,
-  MDBContainer,
-  MDBCard,
-  MDBCardBody,
-  MDBInput,
-  MDBFormInline
-} from "mdbreact";
+import Modal from "react-modal";
+
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)"
+  }
+};
 
 class Conexion extends Component {
   state = {
-    collapseID: "",
-    nameError:"",
-    phoneError:"",
-    
+    modalIsOpen: false,
+    nameError: "",
+    phoneError: ""
   };
 
-  toggleCollapse = collapseID => () =>
-    this.setState(prevState => ({
-      collapseID: prevState.collapseID !== collapseID ? collapseID : ""
-    }));
-    ValidateName = (e) => {
-        let nameregex= /^[a-zA-Z]{3,}$/
-        return (!nameregex.test(e.target.value))?this.setState({ nameError: "Enter a valid name" }):this.setState({ nameError: "" })
-    }
-    ValidatePhone = (e) => {
-        let phoneregex= /^[0-9]{8}$/
-    return (!phoneregex.test(e.target.value))?this.setState({ phoneError: "Enter a valid name" }):this.setState({ phoneError: "" })
-    }
-  render() {
-    const navStyle = { marginTop: "4rem" };
-    const overlay = (
-      <div
-        id="sidenav-overlay"
-        style={{ backgroundColor: "transparent" }}
-        onClick={this.toggleCollapse("navbarCollapse")}
-      />
-    );
-    return (
-      <div id="classicformpage">
-        <MDBView>
-          <MDBMask className="d-flex justify-content-center align-items-center gradient">
-            <MDBContainer>
-              <MDBRow>
-                <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
-                  <h1 className="h1-responsive font-weight-bold">
-                    Se connecter Maintenant{" "}
-                  </h1>
-                  <hr className="hr-light" />
-                  <h6 className="mb-4">
-                    San3a.tn collecte des données à caractère personnel aux fins
-                    notamment de vous fournir le service de mise en relation des
-                    utilisateurs. Conformément à la réglementation, vous
-                    disposez d'un droit d'accès, de rectification, de
-                    portabilité, d’effacement, de limitation ou d'opposition.
-                  </h6>
-                  <MDBBtn outline color="white">
-                    déjà memebre?se connecter
-                  </MDBBtn>
-                </div>
-                <MDBCol md="6" xl="5" className="mb-4">
-                  <MDBCard id="classic-card">
-                    <MDBCardBody className="z-depth-2 white-text">
-                      <h3 className="text-center">
-                        <MDBIcon icon="user" /> S'inscrire:
-                      </h3>
-                      <hr className="hr-light" />
-                      <MDBInput  label="Your name" outline icon="user" onChange={this.ValidateName} background/>
-                      <span style={{color:'red'}} >{this.state.nameError}</span>
-                      <MDBInput label="Your phone" outline icon="envelope" onChange={this.ValidatePhone} background/>
-                      <span style={{color:'red'}}>{this.state.phoneError}</span>
-                      <MDBInput
-                        label="Your password"
-                        outline
-                        icon="lock"
-                        type="password"
-                        background
-                      />
-                      <div className="text-center mt-4 black-text">
-                        <MDBBtn color="indigo">S'inscrire</MDBBtn>
-                        <hr className="hr-light" />
-                        <div className="text-center d-flex justify-content-center white-label">
-                          <a href="#!" className="p-2 m-2">
-                            <MDBIcon
-                              fab
-                              icon="twitter"
-                              className="white-text"
-                            />
-                          </a>
-                          <a href="#!" className="p-2 m-2">
-                            <MDBIcon
-                              fab
-                              icon="linkedin-in"
-                              className="white-text"
-                            />
-                          </a>
-                          <a href="#!" className="p-2 m-2">
-                            <MDBIcon
-                              fab
-                              icon="instagram"
-                              className="white-text"
-                            />
-                          </a>
-                        </div>
-                      </div>
-                    </MDBCardBody>
-                  </MDBCard>
-                </MDBCol>
-              </MDBRow>
-            </MDBContainer>
-          </MDBMask>
-        </MDBView>
+  openModal = () => {
+    this.setState({ modalIsOpen: true });
+  };
 
-        <MDBContainer>
-          <MDBRow className="py-5">
-            <MDBCol md="12" className="text-center">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-            </MDBCol>
-          </MDBRow>
-        </MDBContainer>
+  afterOpenModal = () => {
+    // references are now sync'd and can be accessed.
+    this.subtitle.style.color = "#f00";
+  };
+
+  closeModal = () => {
+    this.setState({ modalIsOpen: false });
+  };
+  ValidateName = e => {
+    let nameregex = /^[a-zA-Z]{3,}$/;
+    return !nameregex.test(e.target.value)
+      ? this.setState({ nameError: "Enter a valid name" })
+      : this.setState({ nameError: "" });
+  };
+  ValidatePhone = e => {
+    let phoneregex = /^[0-9]{8}$/;
+    return !phoneregex.test(e.target.value)
+      ? this.setState({ phoneError: "Enter a valid name" })
+      : this.setState({ phoneError: "" });
+  };
+  render() {
+    return (
+      <div className="modal-container">
+        <button onClick={this.openModal}>Open Modal</button>
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          <form name="validationk">
+            <h2 ref={subtitle => (this.subtitle = subtitle)}>Hello</h2>
+            <div className="login-wrap">
+              <div className="login-html">
+                <input
+                  id="tab-1"
+                  type="radio"
+                  name="tab"
+                  className="sign-in"
+                  defaultChecked
+                />
+                <label htmlFor="tab-1" className="tab">
+                  Se connecter
+                </label>
+                <input id="tab-2" type="radio" name="tab" className="sign-up" />
+                <label htmlFor="tab-2" className="tab">
+                  Inscription
+                </label>
+                <div className="login-form">
+                  <div className="sign-in-htm">
+                    <div className="group">
+                      <label htmlFor="user" className="label">
+                        Pseudo
+                      </label>
+                      <input id="user" type="text" className="input" />
+                    </div>
+                    <div className="group">
+                      <label htmlFor="pass" className="label">
+                        Mot de Passe
+                      </label>
+                      <input
+                        id="pass"
+                        type="password"
+                        className="input"
+                        data-type="password"
+                      />
+                    </div>
+                    <div className="group">
+                      <input
+                        id="check"
+                        type="checkbox"
+                        className="check"
+                        defaultChecked
+                      />
+                      <label htmlFor="check">
+                        <span className="icon" /> Gardez-moi connecté
+                      </label>
+                    </div>
+                    <div className="group row">
+                      <input
+                        type="button"
+                        className="button col-lg-6 col-sm-12"
+                        defaultValue="Se connecter"
+                        onclick="conct()"
+                      />
+                      <input
+                        type="button"
+                        className="button  col-lg-6 col-sm-12"
+                        defaultValue="retour"
+                        onClick={this.closeModal}
+                      />
+                    </div>
+                    <div className="hr" />
+                  </div>
+                  <div className="sign-up-htm">
+                    <div className="group">
+                      <label htmlFor="userup" className="label">
+                        Pseudo
+                      </label>
+                      <input
+                        id="userup"
+                        name="fname"
+                        type="text"
+                        className="input"
+                      />
+                    </div>
+                    <div className="group">
+                      <label htmlFor="address" className="label">
+                        Adresse
+                      </label>
+                      <input
+                        id="address"
+                        name="address"
+                        type="text"
+                        className="input"
+                      />
+                    </div>
+                    <div className="group">
+                      <label htmlFor="tel" className="label">
+                        Telephone
+                      </label>
+                      <input
+                        id="tel"
+                        type="text"
+                        name="tel"
+                        className="input"
+                        maxLength="8"
+                      />
+                    </div>
+                    <div className="group">
+                      <label htmlFor="passup" className="label">
+                        Mot de Passe
+                      </label>
+                      <input
+                        id="passup"
+                        name="Password"
+                        type="password"
+                        className="input"
+                        data-type="password"
+                      />
+                    </div>
+                    <div className="group">
+                      <label htmlFor="mail" className="label">
+                        {" "}
+                        Adresse mail
+                      </label>
+                      <input
+                        id="mail"
+                        name="E-mail"
+                        type="text"
+                        className="input"
+                      />
+                    </div>
+                    <div className="group row">
+                      <input
+                        type="button"
+                        className="button col-lg-6"
+                        defaultValue="s'inscrire"
+                      />
+                      <input
+                        type="button"
+                        className="button  col-lg-6"
+                        defaultValue="retour"
+                        onClick={this.closeModal}
+                      />
+                    </div>
+                    <div className="hr" />
+                    <div className="foot-lnk">
+                      <label htmlFor="tab-1">Déjà membre?</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </Modal>
       </div>
     );
   }
