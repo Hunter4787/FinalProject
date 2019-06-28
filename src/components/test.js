@@ -21,4 +21,4 @@ class Butt extends Component {
     }
 }
 
-export Butt default 
+export default Butt
