@@ -43,7 +43,7 @@ class SignIn extends Component {
                     </div>
                     <hr />
                     <div className="row">
-                      <div className="col-lg-8">
+                      <div className="col-lg-6">
                         <b>
                           <a href>Mot de passe oubliée?</a>
                         </b>
