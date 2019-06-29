@@ -231,3 +231,12 @@
   align-items: center;
   border:1px black;
 }
+/*side nav style*/
+.sidenav-container{
+  width: 30%
+}
+
+/*user main style*/
+.user-main{
+  display: flex
+}

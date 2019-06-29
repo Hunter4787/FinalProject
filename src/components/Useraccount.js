@@ -11,9 +11,11 @@ class User extends Component {
     render() { 
         return ( <div>
             <UserNav />
+            <div className='user-main'>
             <SideNav />
             <UserMain />
-            <Footer />
+            </div>
+            {/* <Footer /> */}
         </div> );
     }
 }
