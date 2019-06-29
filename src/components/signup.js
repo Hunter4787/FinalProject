@@ -2,22 +2,53 @@ import React, { Component } from "react";
 
 class SignUp extends Component {
   state = {
-    modalIsOpen: false,
     nameError: "",
-    phoneError: ""
+    prenomError: "",
+    phoneError: "",
+    mailError: "",
+    passError: "",
+    repassError: "",
+    password: ""
   };
 
   ValidateName = e => {
     let nameregex = /^[a-zA-Z]{3,}$/;
     return !nameregex.test(e.target.value)
-      ? this.setState({ nameError: "Enter a valid name" })
+      ? this.setState({ nameError: "Nom invalide" })
       : this.setState({ nameError: "" });
+  };
+  ValidatePrenom = e => {
+    let nameregex = /^[a-zA-Z]{3,}$/;
+    return !nameregex.test(e.target.value)
+      ? this.setState({ prenomError: "Prenom invalide" })
+      : this.setState({ prenomError: "" });
   };
   ValidatePhone = e => {
     let phoneregex = /^[0-9]{8}$/;
     return !phoneregex.test(e.target.value)
-      ? this.setState({ phoneError: "Enter a valid name" })
+      ? this.setState({ phoneError: "invalide telephone" })
       : this.setState({ phoneError: "" });
+  };
+
+  ValidatePass = e => {
+    let strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})");
+    if (!strongRegex.test(e.target.value))
+      return this.setState({ passError: "mot de passe invalide" });
+    else {
+      this.setState({ passError: "" });
+      this.setState({ password: e.target.value });
+    }
+  };
+  ValidateRepass = e => {
+    return !(this.state.password === e.target.value)
+      ? this.setState({ repassError: "confirmation non identique" })
+      : this.setState({ repassError: "" });
+  };
+  ValidateEmail = e => {
+    let regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
+    return !regex.test(e.target.value)
+      ? this.setState({ mailError: "Exemple:exemple@gmail.com" })
+      : this.setState({ mailError: "" });
   };
   render() {
     return (
@@ -44,30 +75,74 @@ class SignUp extends Component {
                 <form>
                   <div className="top-margin">
                     <label>Prenom</label>
-                    <input type="text" className="form-control" />
+                    <input
+                      type="text"
+                      className="form-control"
+                      onChange={this.ValidatePrenom}
+                    />
+                  <span style={{ color: "red" }}>
+                    {" "}
+                    {this.state.prenomError}
+                  </span>
                   </div>
                   <div className="top-margin">
                     <label>Nom</label>
-                    <input type="text" className="form-control" />
+                    <input
+                      type="text"
+                      className="form-control"
+                      onChange={this.ValidateName}
+                    />
+                  <span style={{ color: "red" }}>{this.state.nameError}</span>
+                  </div>
+                  <div className="top-margin">
+                    <label>
+                      telephone <span className="text-danger">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      onChange={this.ValidatePhone}
+                    />
+                  <span style={{ color: "red" }}>{this.state.phoneError}</span>
                   </div>
                   <div className="top-margin">
                     <label>
                       Addresse mail <span className="text-danger">*</span>
                     </label>
-                    <input type="text" className="form-control" />
+                    <input
+                      type="text"
+                      className="form-control"
+                      onChange={this.ValidateEmail}
+                    />
+                  <span style={{ color: "red" }}>{this.state.mailError}</span>
                   </div>
                   <div className="row top-margin">
                     <div className="col-sm-6">
                       <label>
                         Mot de passe <span className="text-danger">*</span>
                       </label>
-                      <input type="text" className="form-control" />
+                      <input
+                        type="text"
+                        className="form-control"
+                        onChange={this.ValidatePass}
+                      />
+                      <span style={{ color: "red" }}>
+                        {this.state.passError}
+                      </span>
                     </div>
                     <div className="col-sm-6">
                       <label>
-                        Confirmer Mot de passe <span className="text-danger">*</span>
+                        Confirmer Mot de passe{" "}
+                        <span className="text-danger">*</span>
                       </label>
-                      <input type="text" className="form-control" />
+                      <input
+                        type="text"
+                        className="form-control"
+                        onChange={this.ValidateRepass}
+                      />
+                      <span style={{ color: "red" }}>
+                        {this.state.repassError}
+                      </span>
                     </div>
                   </div>
                   <hr />
