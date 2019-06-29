@@ -214,3 +214,20 @@
   margin-left: 10px;
 }
 
+/*serarchBar style*/
+.a,b{
+  
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border:1px black;
+}
+#dropdown-custom-components
+{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border:1px black;
+}

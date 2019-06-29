@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Nav from './nav' 
-import CustomToggle from './drop' 
+import Searchbar from './searchbar' 
 import SignUp from './signup' 
 import SignIn from './signin' 
 import Admin from './admin'
@@ -19,11 +19,12 @@ import Admin from './admin'
 function App() {
   return (
     <div className="App">
-     <Nav />
-     <SignUp />
-     <SignIn />
+     <Nav/>
+     <Searchbar/>
+     <SignUp/>
+     <SignIn/>
      <Admin/>
-     <CustomToggle/>
+    
     </div>
   );
 }
