@@ -6,8 +6,12 @@ class Searchbar extends Component {
         this.state = {  }
     }
     render() { 
-        return (  
-            <Drop />
+        return ( <div>
+             <Drop />
+             <Drop />
+
+        </div> 
+          
             
             
         
