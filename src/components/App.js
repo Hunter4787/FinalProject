@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
 import Nav from './nav' 
-import Drop from './drop' 
-import Butt from './test'
+import CustomToggle from './drop' 
+import SignUp from './signup' 
+import SignIn from './signin' 
 import Admin from './admin'
-import Conexion from './connexion'
+//import Conexion from './connexion'
 // import withFirebaseAuth from 'react-with-firebase-auth'
 // import * as firebase from 'firebase/app';
 // import 'firebase/auth';
@@ -19,10 +20,10 @@ function App() {
   return (
     <div className="App">
      <Nav />
-     <Drop />
-     <Butt/>
-     <Conexion />
+     <SignUp />
+     <SignIn />
      <Admin/>
+     <CustomToggle/>
     </div>
   );
 }
