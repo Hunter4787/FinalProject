@@ -4,6 +4,7 @@ import Admin from './admin'
 import SignIn from './signin';
 import SignUp from './signup';
 import Nav from './nav';
+import User from './Useraccount';
 
 class Routes extends Component {
     constructor(props) {
@@ -15,6 +16,7 @@ class Routes extends Component {
         <Route exact path="/connexion" component={SignIn}></Route>
         <Route exact path="/inscription" component={SignUp}></Route>
         <Route exact path="/" component={Nav}></Route>
+        <Route exact path="/user" component={User}></Route>
         </div> );
     }
 }
