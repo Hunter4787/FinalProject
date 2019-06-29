@@ -100,6 +100,7 @@ class SignUp extends Component {
                     </label>
                     <input
                       type="text"
+                      maxLength="8"
                       className="form-control"
                       onChange={this.ValidatePhone}
                     />
@@ -122,7 +123,7 @@ class SignUp extends Component {
                         Mot de passe <span className="text-danger">*</span>
                       </label>
                       <input
-                        type="text"
+                        type="password"
                         className="form-control"
                         onChange={this.ValidatePass}
                       />
@@ -136,7 +137,7 @@ class SignUp extends Component {
                         <span className="text-danger">*</span>
                       </label>
                       <input
-                        type="text"
+                        type="paswword"
                         className="form-control"
                         onChange={this.ValidateRepass}
                       />

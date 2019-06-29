@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 
-class Nav extends Component {
+class UserNav extends Component {
     constructor(props) {
         super(props);
         this.state = {}
@@ -23,8 +23,7 @@ class Nav extends Component {
                         <div id="navbar" className="navbar-collapse collapse">
                             <ul className="nav navbar-nav navbar-right">
                                 <li className="active"><Link to='/'>Acceuil</Link></li>
-                                <li><Link to='/connexion'>Se connecter</Link></li>
-                                <li><Link to='/inscription'>S'inscrire</Link></li>
+                                <li><Link to='/inscription'>Tableau de bord</Link></li>
                                 <li><a data-scroll href="#contact">Contactez nous</a></li>
                             </ul>
                         </div>
@@ -37,4 +36,4 @@ class Nav extends Component {
     }
 }
 
-export default Nav;
+export default UserNav;

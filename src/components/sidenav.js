@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import Drop from './drop' 
-class Searchbar extends Component {
+
+class SideNav extends Component {
     constructor(props) {
         super(props);
         this.state = {  }
     }
     render() { 
-        return (  
-            <Drop />
-        )
+        return (<div></div> );
     }
 }
  
-export default Searchbar;
+export default SideNav;
