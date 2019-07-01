@@ -60,7 +60,7 @@ body.building_version .affix {
     padding: 10px 15px;
 }
 body.building_version .affix .top-header {
-    display: none;
+    display:none ;
 }
 .gem-contacts-item.gem-contacts-phone a {
     color: #fff;
