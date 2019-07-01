@@ -240,3 +240,18 @@
 .user-main{
   display: flex
 }
+
+.dashboard-home span.title__box {
+  font-size: 16px;
+  font-weight: 600;
+}
+.dashboard-home .dahsboard-home__jobs__info__box {
+  border-radius: 5px;
+  border: 1px solid #eee;
+  -webkit-box-shadow: 5px 5px 5px #F2F2F2;
+  box-shadow: 5px 5px 5px #F2F2F2;
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 30px;
+  margin-bottom: 50px;
+}
