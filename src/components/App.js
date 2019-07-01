@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import Header from "";
 import Nav from "./nav";
 import Searchbar from "./searchbar";
 import SignUp from "./signup";
@@ -26,7 +27,9 @@ function App() {
         <Searchbar />
         <Routes />
         <Admin />
+        <Header />
       </div>
+
     </BrowserRouter>
   );
 }
