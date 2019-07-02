@@ -75,7 +75,7 @@
     max-width:525px;
     min-height:670px;
     position:relative;
-    background: url(../images/helmet-312552_640.png) no-repeat center;
+    /* background: url(../images/) no-repeat center; */
     box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
   }
   .login-html{
@@ -240,6 +240,18 @@
 .user-main{
   display: flex
 }
+<<<<<<< HEAD
+/*--------------------home style--------------------------*/
+#about,#cont,#S_up,#S_in,#cont_us{
+  margin-top: 100px;
+}
+#S_up,#S_in{
+  margin-top: 150px;
+  margin-bottom: 100px;
+}
+#logo
+{border-radius:20px;}
+=======
 
 .dashboard-home span.title__box {
   font-size: 16px;
@@ -255,3 +267,4 @@
   padding: 30px;
   margin-bottom: 50px;
 }
+>>>>>>> 503395c6b9d8dc0620a8705ca46c534b96a3ba64

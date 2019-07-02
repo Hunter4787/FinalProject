@@ -52,7 +52,7 @@ class SignUp extends Component {
   };
   render() {
     return (
-      <div className="container">
+      <div id="S_up" className="container">
         <ol className="breadcrumb">
           <li className="active">S'inscrire</li>
         </ol>

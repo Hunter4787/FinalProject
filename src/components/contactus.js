@@ -5,7 +5,7 @@ class Contactus extends Component {
         this.state = {  }
     }
     render() { 
-        return ( <div>
+        return ( <div id="cont_us">
            <div id="contact" className="section wb">
   <div className="container">
     <div className="section-title row text-center">
