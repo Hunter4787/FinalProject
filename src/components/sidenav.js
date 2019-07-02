@@ -26,7 +26,7 @@ class SideNav extends Component {
               className="list-group-item list-group-item-action waves-effect"
             >
               <i className="fas fa-user mr-3" />
-              Profile
+              Mon compte
             </a>
             <a
               href="#"

@@ -240,6 +240,7 @@
 .user-main{
   display: flex
 }
+<<<<<<< HEAD
 /*--------------------home style--------------------------*/
 #about,#cont,#S_up,#S_in,#cont_us{
   margin-top: 100px;
@@ -250,3 +251,20 @@
 }
 #logo
 {border-radius:20px;}
+=======
+
+.dashboard-home span.title__box {
+  font-size: 16px;
+  font-weight: 600;
+}
+.dashboard-home .dahsboard-home__jobs__info__box {
+  border-radius: 5px;
+  border: 1px solid #eee;
+  -webkit-box-shadow: 5px 5px 5px #F2F2F2;
+  box-shadow: 5px 5px 5px #F2F2F2;
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 30px;
+  margin-bottom: 50px;
+}
+>>>>>>> 503395c6b9d8dc0620a8705ca46c534b96a3ba64
