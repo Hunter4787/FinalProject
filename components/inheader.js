@@ -11,7 +11,7 @@ class InHeader extends Component {
                 <div className="container">
                     <div>
                         <div>
-                            <h1 className="high_title" lang="ar"><span lang="fr"> Sanعa.tn </span> كون مطمان وادخل</h1>
+                            <h1 className="high_title" lang="ar"><span lang="fr"> SANعA.tn </span> كون مطمان وادخل</h1>
                             <h1 className="high_title" lang="ar"> تلقى صنايعي فنان و ماتخرج كان وإنت زاهي و فرحان </h1>
                         </div>
 
