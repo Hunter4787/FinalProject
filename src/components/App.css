@@ -240,9 +240,12 @@
 .user-main{
   display: flex
 }
-<<<<<<< HEAD
+
 /*--------------------home style--------------------------*/
-#about,#cont,#S_up,#S_in,#cont_us{
+/* #about,#cont,#cont_us{
+  margin-top: 100px;
+} */
+.space{
   margin-top: 100px;
 }
 #S_up,#S_in{
@@ -251,7 +254,6 @@
 }
 #logo
 {border-radius:20px;}
-=======
 
 .dashboard-home span.title__box {
   font-size: 16px;
@@ -267,4 +269,38 @@
   padding: 30px;
   margin-bottom: 50px;
 }
->>>>>>> 503395c6b9d8dc0620a8705ca46c534b96a3ba64
+/*----searchbar style -----*/
+.S_bar{
+
+  margin-top:50px;
+  margin-bottom:50px;
+  margin-left:120px;
+  display: flex;
+  align-items:center;
+  /* justify-content:  */
+  
+}
+.categorie_button,.emplacement_button{
+  display: flex;
+ flex-direction: column
+}
+.search_button{
+ 
+  border:forestgreen;
+  background-color: green;
+  margin-top: 25px;
+  color: white;
+  width:80px;
+  height: 50px;
+}
+.lab{
+  font-size:20px;
+  color: white;
+}
+.high_title{
+  font-size:40px;
+  color: white;
+  text-align: center;
+}
+
+
