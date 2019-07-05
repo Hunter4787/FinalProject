@@ -1,39 +1,39 @@
-var users=[
+var contacts=[
     {   _id:'1',
-        name:'yosra',
-        phone:'2323232323',
-        email:'yosra@gmail.com'
+        name:'ammar',
+        phone:'2323',
+        email:'ammar@gmail.com'
     },
     {   _id:'2',
-        name:'ness',
+        name:'hedi',
         phone:'000000',
-        email:'nessrine@gmail.com'
+        email:'hedi@gmail.com'
     }
 ]
 
-const userReducer=(state=users,action)=>
+const contactReducer=(state=contacts,action)=>
 {
   switch(action.type)
   {
       case 'ADD_CONTACT' :
       return (
-          state.concat(action.newuser)
+          state.concat(action.newcontact)
       )
 
-      case 'EDIT_USER':
+      case 'EDIT_CONTACT':
       return (
-          state.map(el=>el._id===action.edituser._id? el=action.edituser:el)
+          state.map(el=>el._id===action.editcontact._id? el=action.editcontact:el)
       )
-      case 'REMOVE_USER':
+      case 'REMOVE_CONTACT':
       return (
           state.filter(el=>el._id!==action._id)
       )
-      case 'UPDATE_USER':
+      case 'UPDATE_CONTACTS':
       return(
-          state=action.users
+          state=action.contacts
       )
       default :
       return state
   }
 }
-export default userReducer
+export default contactReducer

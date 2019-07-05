@@ -242,10 +242,7 @@
 }
 
 /*--------------------home style--------------------------*/
-/* #about,#cont,#cont_us{
-  margin-top: 100px;
-} */
-.space{
+#about,#cont,#S_up,#S_in,#cont_us{
   margin-top: 100px;
 }
 #S_up,#S_in{
@@ -271,7 +268,6 @@
 }
 /*----searchbar style -----*/
 .S_bar{
-
   margin-top:50px;
   margin-bottom:50px;
   margin-left:120px;
@@ -302,5 +298,11 @@
   color: white;
   text-align: center;
 }
+.type
+{
+  width: 106%;
+  margin-left: -13px;
+}
+
 
 

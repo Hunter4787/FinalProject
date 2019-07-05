@@ -1,5 +1,9 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import axios from 'axios';
+import Select from 'react-select';
 import { Link } from 'react-router-dom'
+
 class SignUp extends Component {
   state = {
     nameError: "",
@@ -20,13 +24,13 @@ class SignUp extends Component {
   ValidatePrenom = e => {
     let nameregex = /^[a-zA-Z]{3,}$/;
     return !nameregex.test(e.target.value)
-      ? this.setState({ prenomError: "Prenom invalide" })
+      ? this.setState({ prenomError: "Prénom invalide" })
       : this.setState({ prenomError: "" });
   };
   ValidatePhone = e => {
     let phoneregex = /^[0-9]{8}$/;
     return !phoneregex.test(e.target.value)
-      ? this.setState({ phoneError: "invalide telephone" })
+      ? this.setState({ phoneError: "téléphone invalide " })
       : this.setState({ phoneError: "" });
   };
 
@@ -41,7 +45,7 @@ class SignUp extends Component {
   };
   ValidateRepass = e => {
     return !(this.state.password === e.target.value)
-      ? this.setState({ repassError: "confirmation non identique" })
+      ? this.setState({ repassError: "Confirmation non identique" })
       : this.setState({ repassError: "" });
   };
   ValidateEmail = e => {
@@ -50,7 +54,21 @@ class SignUp extends Component {
       ? this.setState({ mailError: "Exemple:exemple@gmail.com" })
       : this.setState({ mailError: "" });
   };
+
+  addContact=()=>
+  {
+    axios.post('/inscription',{...this.state})
+     .then(()=>this.props.addContactReducer({...this.state}))
+     .catch((err)=>alert(err)) 
+  }
+  
+
   render() {
+    const gender = [
+      { label: "Demandeur", value: 1 },
+      { label: "Professional", value: 2 },
+
+    ];
     return (
       <div id="S_up" className="container">
         <article className="col-xs-12 maincontent">
@@ -64,10 +82,10 @@ class SignUp extends Component {
                   Inscrivez-vous sur <span style={{ fontWeight: 'bold' }}>SANعA.tn</span>
                 </h3>
                 <p className="text-center text-muted">
-                Si vous êtes déjà membre,<Link to="/connexion" data-scroll >
-                      <span style={{ fontWeight: 'bold' }}> connectez-vous </span>
-                    </Link> et lancez votre recherche de bricoleur ou du travail sur
-                  notre platforme.
+                  Si vous êtes déjà membre,<Link to="/connexion" data-scroll >
+                    <span style={{ fontWeight: 'bold' }}> connectez-vous </span>
+                  </Link> et lancez votre recherche de bricoleur ou du travail sur
+                notre platforme.
                 </p>
                 <hr />
                 <form>
@@ -78,10 +96,10 @@ class SignUp extends Component {
                       className="form-control"
                       onChange={this.ValidatePrenom}
                     />
-                  <span style={{ color: "red" }}>
-                    {" "}
-                    {this.state.prenomError}
-                  </span>
+                    <span style={{ color: "red" }}>
+                      {" "}
+                      {this.state.prenomError}
+                    </span>
                   </div>
                   <div className="top-margin">
                     <label>Nom</label>
@@ -90,7 +108,7 @@ class SignUp extends Component {
                       className="form-control"
                       onChange={this.ValidateName}
                     />
-                  <span style={{ color: "red" }}>{this.state.nameError}</span>
+                    <span style={{ color: "red" }}>{this.state.nameError}</span>
                   </div>
                   <div className="top-margin">
                     <label>
@@ -102,7 +120,7 @@ class SignUp extends Component {
                       className="form-control"
                       onChange={this.ValidatePhone}
                     />
-                  <span style={{ color: "red" }}>{this.state.phoneError}</span>
+                    <span style={{ color: "red" }}>{this.state.phoneError}</span>
                   </div>
                   <div className="top-margin">
                     <label>
@@ -113,7 +131,13 @@ class SignUp extends Component {
                       className="form-control"
                       onChange={this.ValidateEmail}
                     />
-                  <span style={{ color: "red" }}>{this.state.mailError}</span>
+                    <span style={{ color: "red" }}>{this.state.mailError}</span>
+                  </div>
+                  <label>
+                    Choix de profil<span className="text-danger">*</span>
+                  </label>
+                  <div className="col-md-12 type" >
+                    <Select options={gender} placeholder=" Choisir le profil " />
                   </div>
                   <div className="row top-margin">
                     <div className="col-sm-6">
@@ -154,7 +178,7 @@ class SignUp extends Component {
                       </label>
                     </div>
                     <div className="col-lg-4 text-right">
-                      <button className="btn btn-action" type="submit">
+                      <button onClick={this.addContact} className="btn btn-action" type="submit">
                         S'inscrire
                       </button>
                     </div>
@@ -168,5 +192,18 @@ class SignUp extends Component {
     );
   }
 }
+
+// const mapDispatchToProps=(dispatch)=>
+// {
+//     return {
+//         addContactReducer:newcontact=>
+//         {
+//             dispatch({
+//                 type:'ADD_CONTACT',
+//                 newcontact
+//             })
+//         }
+//     }
+// }
 
 export default SignUp;

@@ -14,8 +14,8 @@ function Home() {
       <Header/>
       <InHeader/>
       <AboutUs/>
-      <Services/>
-      <Projects/>
+      {/* <Services/>
+      <Projects/> */}
       <Contactus/>
       <Footer/>
       
